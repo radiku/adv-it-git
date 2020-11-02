@@ -21,13 +21,13 @@ jobs:
          echo "Application Name : ${{ env.RaUs_APP_Name }}" 
          
      - name: List Current Folder before checkout
-         run : ls -al
+       run : ls -al
 
      - name: Git clone my repo
-         uses: actions/checkout@v1
+       uses: actions/checkout@v1
          
      - name: List Current Folder after checkout
-         run : ls -al
+       run : ls -al
              
   my_deploy:
      runs-on: ubuntu-latest
