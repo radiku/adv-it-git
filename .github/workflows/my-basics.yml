@@ -20,6 +20,15 @@ jobs:
          echo "Hello Message1"
          echo "Application Name : ${{ env.RaUs_APP_Name }}" 
          
+     - name: List Current Folder before checkout
+         run : ls -al
+
+     - name: Git clone my repo
+         uses: actions/chackout@v1
+         
+     - name: List Current Folder after checkout
+         run : ls -al
+             
   my_deploy:
      runs-on: ubuntu-latest
      needs: [my_testing]
@@ -28,3 +37,8 @@ jobs:
        run : echo " Hello World Deploy Job"
      - name: Deployment Package 
        run: echo "Deploy Package Name is ${{ env.RaUs_PACKAGE_Name }}"   
+     - name: Check if AWS cli command exit in docker machine 
+       run: aws --version
+     - name: Check if ZIP app exist on docker machine 
+       run: zip 
+       
