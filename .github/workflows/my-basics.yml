@@ -1,6 +1,9 @@
 # This is a basic workflow to help you get started with Actions
 
 name: My-GitHubActions-Basics
+env:
+  RaUs_APP_Name    : "My_Flask"
+  RaUs_PACKAGE_Name: "Flask-Deploy-File-${{ github.sha }}" 
 on:
   push:
     branches: [ main ]
@@ -10,10 +13,18 @@ jobs:
      steps:
      - name: Print Hello Message in Testing
        run : echo " Hello World Testing Job"
+       
+     - name: Execute few commands 
+       run : |
+         echo "Hello Message1"
+         echo "Hello Message1"
+         echo "Application Name : ${{ env.RaUs_APP_Name }} 
+         
   my_deploy:
      runs-on: ubuntu-latest
      needs: [my_testing]
      steps:
      - name: Print Hello Message in Deploy 
        run : echo " Hello World Deploy Job"
-        
+     - name: Deployment Package 
+       run: echo "Deploy Package Name is ${{ env.RaUs_PACKAGE_Name }}"   
