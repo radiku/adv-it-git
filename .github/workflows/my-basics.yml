@@ -40,8 +40,8 @@ jobs:
        run : echo " Hello World Deploy Job"
      - name: Print Job variables
        run: |
-         echo " Var1 of Job = ${{ VAR1 }}"
-         echo " Var2 of Job = ${{ VAR2 }}"
+         echo " Var1 of Job = ${{ env.VAR1 }}"
+         echo " Var2 of Job = ${{ env.VAR2 }}"
          echo " Var3 of Step = $LOCAL_STEP_VAR"
        env:
          LOCAL_STEP_VAR: "This is a step local variables"
